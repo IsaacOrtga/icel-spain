@@ -1,0 +1,23 @@
+body{
+    background-color: #202020;
+}
+
+.pass-container{
+    position: relative;
+    width: 100%;
+}
+
+.pass-container input{
+    padding-right: 40px;
+    width: 100%;
+}
+
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+    color: gray;
+    font-size: 18px;
+}
