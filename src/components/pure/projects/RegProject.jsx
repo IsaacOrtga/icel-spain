@@ -1,12 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Card } from "react-bootstrap";
-import MyDropzone from "../../container/dropzone/Dropzone";
 
 function RegProject() {
+  const navigate = useNavigate();
+  const redirectToSavePicture = () => {
+    navigate('/uploadPicture');
+  };
   return (
     <Card>
+      <Card.Title>Registro de nuevo proyecto</Card.Title>
       <Card.Body>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -29,9 +34,9 @@ function RegProject() {
             <Form.Label>Provincia</Form.Label>
             <Form.Control type="text" placeholder="Introduzca provincia" />
           </Form.Group>
-          <MyDropzone />
-          <Button variant="dark" type="submit">
-            Guardar
+
+          <Button variant="dark" type="submit" onClick={redirectToSavePicture}>
+            Siguiente
           </Button>
         </Form>
       </Card.Body>
