@@ -1,0 +1,13 @@
+.projectsList-container{
+    height: 100%;
+    width: 100%;
+}
+
+.dateInitProject-content{
+    font-size: 15px;
+}
+
+.projectImg-content img{
+    width: 100%;
+    height: 100%;
+}

@@ -1,18 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
-import LoginPage from './pages/login/LoginPage'
 import './App.css'
+import './pages/projects/projects.css';
+import { ProjectProvider } from './context/useContext';
+import  RoutesComponent  from './Routes.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <Router>
-      <Routes>
-        <Route path='/login' element={<LoginPage />} />
-      </Routes>
-    </Router>
+    <ProjectProvider>
+      <RoutesComponent />
+    </ProjectProvider>
   )
 }
 
