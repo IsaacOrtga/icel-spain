@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import UploadPictureContainer from "../../pure/projects/UploadPictureContainer";
+import UploadPicture from "../../pure/projects/UploadPicture";
 
-function UploadPicture() {
+const UploadPicture = () => {
   const [preview, setPreview] = useState(null);
+
   const deleteImg = () => {
     setPreview(null);
   };
   return (
-    <UploadPictureContainer
+    <UploadPicture
       preview={preview}
       setPreview={setPreview}
       deleteImg={deleteImg}

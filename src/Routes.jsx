@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LoginPage from "./pages/login/LoginPage";
 import ProjectsListPage from "./pages/projects/ProjectsListPage";
 import RegProjectPage from "./pages/projects/RegProjectPage";
-import UploadPicture from "./components/container/projects/UploadPicture";
+import UploadPictureContainer from "./components/pure/projects/UploadPicture";
 
 const RoutesComponent = () => {
   return (
@@ -11,7 +11,7 @@ const RoutesComponent = () => {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/newProject" element={<RegProjectPage />} />
-        <Route path="/uploadPicture" element={<UploadPicture />} />
+        <Route path="/uploadPicture" element={<UploadPictureContainer />} />
         <Route path="/projectsList" element={<ProjectsListPage />} />
       </Routes>
     </Router>

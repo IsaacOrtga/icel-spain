@@ -2,7 +2,7 @@ import React from "react";
 import arrowRight from "../../../assets/icons/arrowRight.svg";
 import ListGroup from "react-bootstrap/ListGroup";
 
-function ProjectsList({ projects = [], redirect }) {
+function ProjectsList ({ projects = [], redirect }) {
 
   console.log(projects)
   return (

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProjectsList from "../../pure/projects/ProjectsList";
 import { useProject } from "../../../context/useContext";
 
-function ProjectGetList (){
+function ProjectGetList () {
     const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
     const { setProjectId } = useProject();

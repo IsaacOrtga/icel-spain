@@ -1,7 +1,6 @@
-import RegProject from "../../components/pure/projects/RegProject";
+import RegProgectContainer from "../../components/container/projects/RegProgectContainer";
 
 function regProjectPage() {
-  return <RegProject />;
+  return <RegProgectContainer />;
 }
-
 export default regProjectPage;

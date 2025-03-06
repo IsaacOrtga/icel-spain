@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { Button } from "react-bootstrap";
 
-function MyDropzone({ setPreview }) {
+function MyDropzone ({ setPreview }) {
   const onDrop = useCallback(
     (acceptedFiles) => {
       if (acceptedFiles.length > 0) {
@@ -14,6 +14,7 @@ function MyDropzone({ setPreview }) {
   );
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  console.log(setPreview); // Verifica que la función está siendo pasada
 
   return (
     <div className="dropZone-content">

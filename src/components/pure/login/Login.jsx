@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../../assets/img/logo.png';
 
-const Login = ({showPassword, togglePasswordVisibility}) => {
+function Login ({showPassword, togglePasswordVisibility}) {
     return (
         <>
             <Card style={{ width: '18rem' }} className='loginCard'>

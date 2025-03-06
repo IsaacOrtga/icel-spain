@@ -1,13 +1,13 @@
 import Camera from "../../../assets/icons/camera.svg";
 
-function TakePicture() {
+function TakePicture ({ onClick }) {
   return (
     <>
       <div
         className="col-12 cursor-pointer"
         id="camera-content"
       >
-        <img src={Camera} alt="camera" />
+        <img src={Camera} alt="camera" onClick={onClick}/>
       </div>
     </>
   );

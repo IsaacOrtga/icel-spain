@@ -1,6 +1,6 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-function ProjectProgressBar() {
+function ProjectProgressBar () {
   return (
     <ProgressBar style={{width:"500px"}}>
       <ProgressBar  variant="success" now={60} key={1} />
