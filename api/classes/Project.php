@@ -10,22 +10,26 @@ class Project {
     }
 
     // Método para agregar un nuevo proyecto
-    public function addProject($name, $start_date, $end_date, $image = null) {
+    public function addProject($name, $address, $town, $postal_code, $province, $init_date = null, $finish_date = null, $picture = null) {
         try {
             // Iniciar transacción para asegurar que tanto el proyecto como la imagen (si hay) se guarden correctamente
             $this->db->beginTransaction();
 
             // Insertar el proyecto en la base de datos
-            $stmt = $this->db->prepare("INSERT INTO $this->table (name, start_date, end_date) VALUES (:name, :start_date, :end_date)");
+            $stmt = $this->db->prepare("INSERT INTO $this->table (name, start_date, end_date, address, town, postal_code, province, updated_at) VALUES (:name, :addres, :town, :postal_code, :province, :init_date, :finish_date, :updated_at)");
             $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':start_date', $start_date);
-            $stmt->bindParam(':end_date', $end_date);
+            $stmt->bindParam(':address', $address);
+            $stmt->bindParam(':town', $town);
+            $stmt->bindParam(':postal_code', $postal_code);
+            $stmt->bindParam(':province', $province);
+            if($init_date) $stmt->bindParam(':init_date', $init_date);
+            if($finish_date) $stmt->bindParam(':finish_date', $finish_date);
             $stmt->execute();
             $projectId = $this->db->lastInsertId(); // Obtener el ID del proyecto recién insertado
 
             // Si se ha proporcionado una imagen, insertarla en la tabla de imágenes
-            if ($image) {
-                $this->saveImage($projectId, $image);
+            if ($picture) {
+                $this->saveImage($projectId, $picture);
             }
 
             // Confirmar la transacción
@@ -72,10 +76,10 @@ class Project {
     }
 
     // Método para manejar la imagen asociada al proyecto (guardarla en la base de datos)
-    private function saveImage($projectId, $imageData) {
+    private function saveImage($projectId, $picture) {
         $stmt = $this->db->prepare("INSERT INTO project_images (project_id, image_data) VALUES (:project_id, :image)");
         $stmt->bindParam(':project_id', $projectId);
-        $stmt->bindParam(':image', $imageData, PDO::PARAM_LOB); // Si es binario (BLOB)
+        $stmt->bindParam(':picture', $picture, PDO::PARAM_LOB); // Si es binario (BLOB)
         $stmt->execute();
     }
 

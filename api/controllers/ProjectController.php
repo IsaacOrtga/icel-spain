@@ -7,10 +7,9 @@ class ProjectController {
     // Guardar un nuevo proyecto (con o sin imagen)
     public function saveProject() {
         $data = json_decode(file_get_contents("php://input"), true); // Obtener datos del cuerpo de la solicitud
-
-        if (isset($data['name']) && isset($data['start_date']) && isset($data['end_date'])) {
+        if (isset($data['name']) && isset($data['address']) && isset($data['town']) && isset($data['postal_code']) && isset($data['province']) && isset($data['init_date']) && isset($data['finish_date']) && isset($data['picture'])) {
             $project = new Project();
-            $response = $project->addProject($data['name'], $data['start_date'], $data['end_date'], $data['image'] ?? null);
+            $response = $project->addProject($data['name'], $data['address'], $data['town'], $data['postal_code'], $data['province'], $data['init_date'] ?? null, $data['finish_date'] ?? null, $data['picture'] ?? null);
             echo json_encode($response);
         } else {
             echo json_encode(["error" => "Missing required fields"]);

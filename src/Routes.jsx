@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LoginPage from "./pages/login/LoginPage";
 import ProjectsListPage from "./pages/projects/ProjectsListPage";
 import RegProjectPage from "./pages/projects/RegProjectPage";
-import UploadPictureContainer from "./components/pure/projects/UploadPicture";
+import UploadPictureContainer from "./components/container/projects/UploadPictureContainer";
 
 const RoutesComponent = () => {
   return (

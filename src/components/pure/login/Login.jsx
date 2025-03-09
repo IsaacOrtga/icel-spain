@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../../assets/img/logo.png';
+import Logo from '../../../../public/img/logo.png';
 
 function Login ({showPassword, togglePasswordVisibility}) {
     return (

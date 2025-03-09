@@ -1,0 +1,8 @@
+.react-datepicker__calendar-icon {
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.dapicker-input{
+    padding: 6px 0px 0px 25px!important;
+}

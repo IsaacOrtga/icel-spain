@@ -1,23 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Card } from "react-bootstrap";
-import MyDropzone from "./Dropzone";
-import ModalComponent from "../modal/ModalComponent";
-import TakePicture from "./TakePicture";
-import Delete from "../../../assets/icons/delete_temp.svg";
-import CameraCapture from "./Camera";
+import MyDropzone from "../Dropzone";
+import TakePicture from "../TakePicture";
+import Delete from "../../../../../public/icons/delete_temp.svg";
+import CameraCapture from "../Camera";
+import ModalFinishReg from "../../../container/projects/ModalFinishReg";
 
-function UploadPicture({ preview, setPreview, deleteImg }) {
+function UploadPicture({ preview, setPreview, deleteImg, setDBImage,  projectData, showModal, handleShowModal, handleCloseModal, newProject, setNewProject }) {
   const [showCamera, setShowCamera] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { projectData } = location.state || {}; // Accedemos al state
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-  console.log(showModal)
   return (
     <>
       <Card className="h-75 w-75">
@@ -34,7 +27,7 @@ function UploadPicture({ preview, setPreview, deleteImg }) {
                     <label className="mb-3" htmlFor="takePicture">
                       Escoger de galería
                     </label>
-                    <MyDropzone setPreview={setPreview} />
+                    <MyDropzone setPreview={setPreview} setDBImage={setDBImage}/>
                   </div>
                   <div style={{ display: preview ? "none" : "block" }}>
                     <label className="mb-3" htmlFor="takePicture">
@@ -94,10 +87,6 @@ function UploadPicture({ preview, setPreview, deleteImg }) {
                 <label className="fw-bold me-1">Provincia:</label>
                 <p className="text-truncate">{projectData[0]?.province}</p>
               </div>
-              <div className="d-flex flex-row">
-                <label className="fw-bold me-1">Foto:</label>
-                <p className="text-truncate">img2.jpg</p>
-              </div>
             </div>
           </div>
         </div>
@@ -111,13 +100,6 @@ function UploadPicture({ preview, setPreview, deleteImg }) {
             >
               Atrás
             </Button>
-            <Button
-              variant="primary"
-              type="button"
-              className="flex-grow-1"
-            >
-              Omitir
-            </Button>
             <Button 
             variant="dark" 
             type="button" 
@@ -128,7 +110,7 @@ function UploadPicture({ preview, setPreview, deleteImg }) {
           </div>
         </div>
       </Card>
-      <ModalComponent showModal={showModal} handleClose={handleCloseModal} />
+      <ModalFinishReg showModal={showModal} handleClose={handleCloseModal} projectData={projectData} />
     </>
   );
 }

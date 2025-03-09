@@ -8,7 +8,7 @@ function ProjectGetList () {
     const navigate = useNavigate();
     const { setProjectId } = useProject();
     useEffect(() =>{
-        fetch("http://localhost:8000/index.php?endpoint=getProjects") 
+        fetch("http://localhost:8000/api/index.php?endpoint=getProjects") 
         .then(response => response.json())
         .then(data => setProjects(data))
         .catch(error => console.error('Error: ', error));

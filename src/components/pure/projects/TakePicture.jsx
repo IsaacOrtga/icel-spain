@@ -1,4 +1,4 @@
-import Camera from "../../../assets/icons/camera.svg";
+import Camera from "../../../../public/icons/camera.svg";
 
 function TakePicture ({ onClick }) {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import arrowRight from "../../../assets/icons/arrowRight.svg";
+import arrowRight from "../../../../public/icons/arrowRight.svg";
 import ListGroup from "react-bootstrap/ListGroup";
 
 function ProjectsList ({ projects = [], redirect }) {
